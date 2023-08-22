@@ -21,13 +21,17 @@
       <p class="advice-text">"<span id="js-advice-text">It is easy to sit up and take notice, what's difficult is getting up and taking action.</span>"</p>
 
       <!-- Divider -->
-      <img src="images/pattern-divider-mobile.svg" class="card-divider" alt="" />
-
+      <picture>
+        <source srcset="images/pattern-divider-desktop.svg" media="(min-width: 30rem)" />
+        <img src="images/pattern-divider-mobile.svg" class="card-divider" alt="" />
+      </picture>
       <!-- Dice icon -->
-      <button class="advice-generator-btn">
+      <button class="advice-generator-btn" aria-label="Generate a new advice">
         <img src="images/icon-dice.svg" class="dice-icon" alt="" />
       </button>
     </div>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
