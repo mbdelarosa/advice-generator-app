@@ -8,7 +8,6 @@ function generateAdvice() {
   const adviceTextField = document.getElementById("js-advice-text");
 
   getAdvice().then((advice) => {
-    console.log(advice);
     adviceIdField.textContent = advice["slip"]["id"];
     adviceTextField.textContent = advice["slip"]["advice"];
   });
