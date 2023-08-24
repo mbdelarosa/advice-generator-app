@@ -1,13 +1,26 @@
+async function fetchAdvice() {
+  try {
+    const response = await fetch('https://api.adviceslip.com/advice');
+    if (response.ok) {
+      const advice = await response.json();
+      return advice;
+    }
+  } catch (error) {
+    console.log("Error fetching new advice", error);
+    return null;
+  }
+}
+
 function generateAdvice() {
   const adviceIdField = document.getElementById("js-advice-id");
   const adviceTextField = document.getElementById("js-advice-text");
-  const fetchAdvice = fetch('https://api.adviceslip.com/advice');
 
-  fetchAdvice
-    .then((response) => response.json())
+  fetchAdvice()
     .then((advice) => {
-      adviceIdField.textContent = advice["slip"]["id"];
-      adviceTextField.textContent = advice["slip"]["advice"];
+      if (advice != null) {
+        adviceIdField.textContent = advice["slip"]["id"];
+        adviceTextField.textContent = advice["slip"]["advice"];
+      }
     });
 }
 
